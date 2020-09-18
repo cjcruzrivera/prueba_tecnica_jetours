@@ -5,6 +5,12 @@ import json
 
 app = Flask(__name__)
 
+@app.route('/',methods=['GET'])
+def index():
+    response = "Prueba Tecnica JeTours. Dirijase a las urls correspondientes para probar el funcionamiento"
+    response += "<br> <ul> <li><a href='/ordenar'>Punto 1</a> </li><li><a href='/contarMayusculas'> Punto 2</a></li> </ul>"
+    return  response
+
 @app.route('/ordenar',methods=['GET'])
 def ordenar():
     arrayArgs = list(request.args.keys())
