@@ -11,10 +11,14 @@ def index():
     response += "<br> <ul> <li><a href='/ordenar'>Punto 1</a> </li><li><a href='/contarMayusculas'> Punto 2</a></li> </ul>"
     return  response
 
+def makeInt(val):
+    return int(val)
+
 @app.route('/ordenar',methods=['GET'])
 def ordenar():
     arrayArgs = list(request.args.keys())
-    response = sorted(arrayArgs)
+    auxArray = map(makeInt, arrayArgs)
+    response = sorted(auxArray)
 
     return json.dumps(response)
 
